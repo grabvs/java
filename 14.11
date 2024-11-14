@@ -1,0 +1,49 @@
+class podziel {
+    public int dziel(int a, int b) {
+        try{
+            return a / b;
+        } catch(ArithmeticException e){
+            System.out.println("nie mozna dzielic przez 0" + e);
+            return 0;
+        }   
+    }
+
+    public double dziel(double a, double b) {
+        if (b == 0.0) {
+            System.out.println("Dzielenie przez zero!");
+        }
+        return a / b;
+    }
+
+    public double dziel(String a, String b) {
+        double A = Double.parseDouble(a);
+        double B = Double.parseDouble(b);
+        if (B == 0.0) {
+           System.out.println("Dzielenie przez zero!");
+        }
+        return A / B;
+    }
+
+    public double dziel2(double a, double b){
+        double wynik3 = a/b;
+        if (Double.isFinite(wynik3)){
+            System.out.println("dzielenie przez 0");
+        }
+        else if(Double.isNaN(wynik3)){
+            System.out.println("blad wyniku typu NaN");
+        }
+        else{
+            return wynik3;
+        }
+    }
+}
+
+public class zadlekcja {
+    public static void main(String[] args) {
+        podziel p = new podziel();
+        
+        System.out.println(p.dziel(10, 5));
+        System.out.println(p.dziel(10.0, 2.0));
+        System.out.println(p.dziel("10", "2"));
+    }
+}
