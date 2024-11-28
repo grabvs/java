@@ -1,0 +1,54 @@
+class Bank {
+   private double balance;
+   public double amount;
+
+    protected double getBalance(){
+        return balance;
+    }
+
+    public void deposit(double amount){
+        if (amount>0){
+            balance += amount;
+            System.out.println("wplacono: " + amount + " obecny balans wynosi: " + balance);
+        }
+        else{
+            System.out.println("wprowadzono niepoprawne dane");
+        }
+    }
+
+    public void withdraw(double amount){
+        if (amount>0){
+           if(balance - amount < 0){
+               System.out.println("nie mozna wyplacic");
+            }
+            else{
+                balance -= amount;
+                System.out.println("wyplacono: " + amount + " obecny balans wynosi: " + balance);
+            }    
+        }
+        else{
+            System.out.println("wprowadzono niepoprawne dane");
+        }
+    }
+    
+}
+
+class Employee{
+    private double salary;
+
+    protected void raiseSalary(salary){
+
+    }
+}
+
+public class BankAccount{
+    public static void main(String[] args){
+        Bank bank = new Bank();
+        bank.deposit(1000);
+        System.out.println("balans wynosi: " + bank.getBalance());
+        
+        bank.withdraw(200);
+        System.out.println("balans wynosi: " + bank.getBalance());
+    }
+
+}
