@@ -1,0 +1,50 @@
+class Pracownik{
+    double wynagrodzenie;
+
+    public Pracownik(double wynagrodzenie){
+        this.wynagrodzenie = wynagrodzenie;
+    }
+
+    public void przedstawSie(){
+        System.out.println("Jestem pracownikiem - " + wynagrodzenie);
+    }
+}
+
+class Manager extends Pracownik{
+    public Manager(double wynagrodzenie){
+        super(wynagrodzenie);
+    }
+
+    @Override
+    public void przedstawSie(){
+        System.out.println("Jestem Managerem - " + wynagrodzenie);
+    }
+}
+
+class Programista extends Pracownik{
+    public Programista(double wynagrodzenie){
+        super(wynagrodzenie);
+    }
+
+    @Override
+    public void przedstawSie(){
+        System.out.println("Jestem Programista - " + wynagrodzenie);
+    }
+}
+
+
+
+
+public class hierarchy {
+    public static void main(String[] args) {
+        Pracownik[] prac1 = new Pracownik[3];
+
+        prac1[0] = new Pracownik(2000);
+        prac1[1] = new Manager(3700);
+        prac1[2] = new Programista(2900);
+
+        for (Pracownik pracownik: prac1 ){
+            pracownik.przedstawSie();
+        }
+    }
+}
