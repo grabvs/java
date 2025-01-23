@@ -1,0 +1,43 @@
+interface payment{
+    void zaplac(double kwota);
+    void anulujPlatnosc();
+}
+
+class KartaKredytowa implements payment{
+    @Override
+    public void zaplac(double kwota){
+        System.out.println("platnosc karta: " + kwota + "PLN");
+    }
+
+    @Override
+    public void anulujPlatnosc(){
+        System.out.println("anulowano platnosc blikiem...");
+    }
+}
+
+class Blik implements payment{
+    @Override
+    public void zaplac(double kwota){
+        System.out.println("platnosc blikiem: " + kwota + "PLN");
+    }
+
+    @Override
+    public void anulujPlatnosc(){
+        System.out.println("anulowano platnosc karta...");
+    }
+}
+
+
+
+public class platnosci{
+    public static void main(String[] args){
+        payment kk = new KartaKredytowa();
+
+        kk.zaplac(100);
+        kk.anulujPlatnosc();
+
+        payment blik = new Blik();
+        blik.zaplac(200);
+        blik.anulujPlatnosc();
+    }
+}
