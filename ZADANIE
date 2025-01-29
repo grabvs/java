@@ -1,0 +1,58 @@
+interface Odtwarzacz {
+    void zatrzymaj();
+    void odtworz();
+}
+
+class Muzyka implements Odtwarzacz {
+    private String nazwaPliku; // Pole do przechowywania nazwy pliku
+
+    // Konstruktor pozwalający ustawić nazwę pliku
+    public Muzyka(String nazwaPliku) {
+        this.nazwaPliku = nazwaPliku;
+    }
+
+    @Override
+    public void zatrzymaj() {
+        System.out.println("Muzyka zatrzymana.");
+    }
+
+    @Override
+    public void odtworz() {
+        try {
+            if (nazwaPliku == null || nazwaPliku.isEmpty()) {
+                throw new Exception("Nie znaleziono pliku muzycznego!");
+            }
+            System.out.println("Odtwarzanie: " + nazwaPliku);
+        } catch (Exception e) {
+            System.out.println("Błąd: " + e.getMessage());
+        }
+    }
+}
+
+class Wideo implements Odtwarzacz {
+    @Override
+    public void zatrzymaj() {
+        System.out.println("Odtwarzanie wideo zatrzymane.");
+    }
+
+    @Override
+    public void odtworz() {
+        System.out.println("Odtwarzanie wideo...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Odtwarzacz muzyka1 = new Muzyka("new choppa"); // Odtwarzanie działa
+        muzyka1.odtworz();
+        muzyka1.zatrzymaj();
+
+        Odtwarzacz muzyka2 = new Muzyka(""); // Symulacja błędu (brak pliku)
+        muzyka2.odtworz();
+        muzyka2.zatrzymaj();
+
+        Odtwarzacz wideo = new Wideo();
+        wideo.odtworz();
+        wideo.zatrzymaj();
+    }
+}
