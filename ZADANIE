@@ -47,7 +47,7 @@ public class Main {
         muzyka1.odtworz();
         muzyka1.zatrzymaj();
 
-        Odtwarzacz muzyka2 = new Muzyka(""); // Symulacja błędu (brak pliku)
+        Odtwarzacz muzyka2 = new Muzyka(""); // Symulacja błędu
         muzyka2.odtworz();
         muzyka2.zatrzymaj();
 
