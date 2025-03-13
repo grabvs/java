@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="center"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    >
+
+    <EditText
+        android:id="@+id/txtLiczba1"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:hint="Wprowadź pierwszą liczbę"
+        android:inputType="numberDecimal"/>
+
+    <EditText
+        android:id="@+id/txtLiczba2"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:hint="Wprowadź drugą liczbę"
+        android:inputType="numberDecimal"/>
+
+    <Button
+        android:id="@+id/btnPlus"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Dodaj"
+        android:OnClick="pokazWynik"/>
+
+    <Button
+        android:id="@+id/btnDziel"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Podziel"
+        android:OnClick="pokazWynik"/>
+
+</LinearLayout>
+
+
+package com.example.test;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        EditText txtLiczba1 = findViewById(R.id.txtLiczba1);
+        Button btnDziel = findViewById(R.id.btnDziel);
+
+        btnDziel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String imie = txtLiczba1.getText().toString();
+                if (!imie.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "wynik dzielenia to: " + (imie), Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "Nie podałeś liczby", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+    public void pokazWynik(View view) {
+        EditText txtLiczba2 = findViewById(R.id.txtLiczba2);
+
+        if (!txtLiczba2.isEmpty()) {
+            Toast.makeText(this, "wynik dodawania to: " + (imie + imie), Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "Nie podałeś liczby", Toast.LENGTH_LONG).show();
+        }
+    }
+}
